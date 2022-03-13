@@ -6,10 +6,13 @@
   height: 40vmin;
   pointer-events: none;
 }
+.App-logo path{
+  fill: rgb(62, 186, 211);
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-bounce infinite alternate .7s ease-out;
   }
 }
 
@@ -24,15 +27,21 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes App-logo-bounce {
+  0%{
+    transform: translateY(0px) scaleY(.95);
+    transform-origin: bottom;
   }
-  to {
-    transform: rotate(360deg);
+  10% {
+    transform: translateY(0) scaleY(.98);
+    transform-origin: bottom;
+  }
+  20%{
+    transform: translateY(-10px) scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transition-timing-function: ease-in-out;
+    transform: translateY(-60px) ;
   }
 }
