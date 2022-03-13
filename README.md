@@ -26,9 +26,16 @@ If you manage to finish the required tasks within the time frame, here are some 
 - Use the archive model of the api to show past information
 
 ## Instructions
+
+### Starting
 - To start working, fork the repository to your account
+- Clone it to your machine
+- Run `npm i` to install the dependencies, `npm start` to start the CRA development server
 - Please stick to proper git management- separate you work into small, sensible commits with proper messages, work on feature branchesand not on the main, etc.
 - You may use libraries as you see fit, but not any that implement the map feature, please create that by yourself.
+
+### Submission
+- Add to this .md file a short overview of your site and how it works, if anything needs explaining.
 - Submit your work in the form of a pull request to master. You may also deploy it, i.e. to vercel or another platform of your choice. 
 - Your priorities should be:
   1. Primary tasks
