@@ -1,4 +1,4 @@
-# Northern nights Task
+# 🌍 Northern nights Task
 ## Story
 - The client is a travel agency, specializing in trips to view the northern lights all over the world.
 - They require a platform To help them see whether or not an aurora is likely to be happening in a certain location.
