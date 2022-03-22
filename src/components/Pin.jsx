@@ -8,7 +8,7 @@ function Pin(props) {
   return (
     <Box
       position={'absolute'}
-      sx={{ transform: ' translate(-50%, 15%)' }}
+      sx={{ transform: ' translate(-50%, 30%)' }}
       bottom={props.lat}
       left={props.long}
     >
