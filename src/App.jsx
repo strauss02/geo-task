@@ -6,6 +6,7 @@ import {
 import Map from './components/Map.jsx'
 import { Box, Grid, Paper } from '@mui/material'
 import GeoSection from './layout/GeoSection'
+import AuroraSection from './layout/AuroraSection'
 
 function App() {
   const {
@@ -24,16 +25,20 @@ function App() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container>
         <Grid container xs={8} spacing={0}>
-          <Grid item xs={12}>
-            <Paper sx={{ height: '70vh' }}>Map</Paper>
+          <Grid
+            item
+            sx={{ height: '70vh', display: 'flex', alignItems: 'center' }}
+            xs={12}
+          >
+            <Map />
           </Grid>
-          <Grid item xs={12}>
-            <Paper sx={{ height: '30vh' }}>Geo Info</Paper>
+          <Grid sx={{ height: '30vh' }} item xs={12}>
+            <GeoSection />
           </Grid>
         </Grid>
         <Grid container xs={4} spacing={0}>
-          <Grid item xs={12}>
-            <Paper sx={{ height: '100vh' }}>Aurora Info</Paper>
+          <Grid item sx={{ height: '100vh' }} xs={12}>
+            <AuroraSection />
           </Grid>
         </Grid>
       </Grid>

@@ -1,11 +1,12 @@
+import { Container } from '@mui/material'
 import React from 'react'
 import image from '../assets/map.jpg'
 
 function Map() {
   return (
-    <div style={{ maxWidth: '100px' }}>
-      <img src={image} alt="world map" style={{ maxWidth: '100px' }} />
-    </div>
+    <Container style={{ width: '100%' }}>
+      <img src={image} alt="world map" style={{ width: '100%' }} />
+    </Container>
   )
 }
 

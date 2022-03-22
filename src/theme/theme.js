@@ -6,6 +6,7 @@ export const theme = createTheme({
       default: '#333',
     },
   },
+  // UNIVERSAL RESET
   MuiCssBaseline: {
     styleOverrides: {
       '*': {
