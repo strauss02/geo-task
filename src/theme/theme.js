@@ -6,6 +6,14 @@ export const theme = createTheme({
       default: '#333',
     },
   },
+
+  breakpoints: {
+    values: {
+      xl: 1000,
+      md: 600,
+      xs: 200,
+    },
+  },
   // UNIVERSAL RESET
   MuiCssBaseline: {
     styleOverrides: {

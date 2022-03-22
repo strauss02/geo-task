@@ -24,20 +24,26 @@ function App() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container>
-        <Grid container xs={8} spacing={0}>
+        <Grid item xl={8} xs={12}>
           <Grid
             item
-            sx={{ height: '70vh', display: 'flex', alignItems: 'center' }}
+            sx={{
+              height: '70vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            xl={12}
             xs={12}
           >
             <Map />
           </Grid>
-          <Grid sx={{ height: '30vh' }} item xs={12}>
+          <Grid sx={{ height: '30vh' }} item xl={12} xs={12}>
             <GeoSection />
           </Grid>
         </Grid>
-        <Grid container xs={4} spacing={0}>
-          <Grid item sx={{ height: '100vh' }} xs={12}>
+        <Grid item xl={4} xs={12}>
+          <Grid item sx={{ height: '100vh' }} xl={12}>
             <AuroraSection />
           </Grid>
         </Grid>
