@@ -7,7 +7,7 @@
 - Your task wil be creating a user interface for the platform, allowing the user to check out locations around the world for information about northern lights activity.
 - The design team has provided a rudimentary [layout](./src/assets/layout.png), please follow it (.
 ### Resources
-- [Aurora api](auroraslive.io/#/api/v1) - provides all sorts of data related to the northern lights
+- [Aurora api](http://auroraslive.io/#/api/v1) - provides all sorts of data related to the northern lights
 - Image of world map provided. 
 - https://hello-aurora.com/news/aurora-forecast information about some of the data you can get from the api, not neccessary for primary requirements but can help if you want to add more things. 
 
