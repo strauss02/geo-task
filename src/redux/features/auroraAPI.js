@@ -8,8 +8,8 @@ export const auroraAPI = createApi({
       query: (lat = 0, long = 0) =>
         `?type=ace&data=probability&lat=${lat}&long=${long}`,
     }),
-    getEntryCountToday: builder.query({
-      query: () => '/stats/today_count',
+    getLocations: builder.query({
+      query: () => '?type=locations',
     }),
     getTopicDetails: builder.query({
       query: () => '/stats/topic_count',
@@ -30,7 +30,7 @@ export const {
   useGetEntriesByHourQuery,
   useGetTopicDetailsQuery,
   useGetProbabilityQuery,
-  useGetEntryCountTodayQuery,
+  useGetLocationsQuery,
   useGetLastEntriesQuery,
   useGetEntriesBySearchQuery,
 } = auroraAPI

@@ -1,7 +1,10 @@
 import React from 'react'
 import { ReactComponent as Logo } from './logo.svg'
 import './App.css'
-import { useGetProbabilityQuery } from './redux/features/auroraAPI'
+import {
+  useGetLocationsQuery,
+  useGetProbabilityQuery,
+} from './redux/features/auroraAPI'
 
 function App() {
   const {
@@ -10,13 +13,19 @@ function App() {
     isLoading: getProbabilityLoading,
   } = useGetProbabilityQuery(80, 80)
 
+  const {
+    data: locations,
+    error: getLocationsError,
+    isLoading: getLocationsLoading,
+  } = useGetLocationsQuery()
+
+  console.log(probability)
+  console.log(locations)
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. Best of luck on your
-          task!
-        </p>
+        <p>probability</p>
       </header>
     </div>
   )
