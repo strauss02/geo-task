@@ -16,12 +16,12 @@ function GeoSection() {
     <Box height={'100%'} bgcolor={'#444'}>
       <Box>
         <Typography variant="caption">
-          Latitude: {DashboardState.geographicalInfo.lat.toFixed(2)}
+          Latitude: {Number(DashboardState.geographicalInfo.lat).toFixed(2)}
           {'  '}
         </Typography>
 
         <Typography variant="caption">
-          Longitude: {DashboardState.geographicalInfo.long.toFixed(2)}
+          Longitude: {Number(DashboardState.geographicalInfo.long).toFixed(2)}
         </Typography>
       </Box>
     </Box>

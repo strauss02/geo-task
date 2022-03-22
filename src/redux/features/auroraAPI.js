@@ -5,8 +5,8 @@ export const auroraAPI = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.auroras.live/v1/' }),
   endpoints: (builder) => ({
     getProbability: builder.query({
-      query: (lat = 0, long = 0) =>
-        `?type=ace&data=probability&lat=${lat}&long=${long}`,
+      query: (coordinates) =>
+        `?type=ace&data=probability&lat=${coordinates.lat}&long=${coordinates.long}`,
     }),
     getLocations: builder.query({
       query: () => '?type=locations',
