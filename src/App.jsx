@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css'
 import {
   useGetLocationsQuery,
   useGetProbabilityQuery,
@@ -24,17 +23,17 @@ function App() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container>
-        <Grid container xs={8} spacing={2}>
+        <Grid container xs={8} spacing={0}>
           <Grid item xs={12}>
-            <Paper>Map</Paper>
+            <Paper sx={{ height: '70vh' }}>Map</Paper>
           </Grid>
           <Grid item xs={12}>
-            <Paper>Geo Info</Paper>
+            <Paper sx={{ height: '30vh' }}>Geo Info</Paper>
           </Grid>
         </Grid>
-        <Grid container xs={4} spacing={2}>
+        <Grid container xs={4} spacing={0}>
           <Grid item xs={12}>
-            <Paper>Aurora Info</Paper>
+            <Paper sx={{ height: '100vh' }}>Aurora Info</Paper>
           </Grid>
         </Grid>
       </Grid>
