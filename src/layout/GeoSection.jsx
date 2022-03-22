@@ -13,14 +13,14 @@ function GeoSection() {
   const DashboardState = useSelector(selectDashboard)
 
   return (
-    <Box height={'100%'} bgcolor={'#444'}>
+    <Box height={'100%'} padding={'1rem'} backgroundColor="#171819">
       <Box>
-        <Typography variant="caption">
+        <Typography variant="button" fontSize={'1.7rem'} display="block">
           Latitude: {Number(DashboardState.geographicalInfo.lat).toFixed(2)}
           {'  '}
         </Typography>
 
-        <Typography variant="caption">
+        <Typography variant="button" fontSize={'1.7rem'} display="block">
           Longitude: {Number(DashboardState.geographicalInfo.long).toFixed(2)}
         </Typography>
       </Box>

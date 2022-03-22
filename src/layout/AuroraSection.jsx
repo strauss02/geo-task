@@ -20,12 +20,12 @@ function AuroraSection() {
     long: DashboardState.geographicalInfo.long,
   })
 
-  console.log(probability.colour)
+  // console.log(probability.colour)
 
   return (
     <Box
       height={'100%'}
-      bgcolor={'#555'}
+      bgcolor={'#1B1C1D'}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -34,12 +34,14 @@ function AuroraSection() {
       }}
     >
       <Box>
-        <Typography variant="subtitle2">
+        <Typography color="textSecondary" variant="subtitle2">
           Chance of seeing the northern lights is about..
         </Typography>
-        <Typography color={probability.colour} variant="h1">
-          {probability.value}%
-        </Typography>
+        {!isProbabilityLoading && (
+          <Typography color={probability.colour} variant="h1">
+            {probability.value} %
+          </Typography>
+        )}
       </Box>
       <Box>
         <Typography variant="caption">Information via Auroras.live</Typography>

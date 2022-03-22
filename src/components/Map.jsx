@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 function Map() {
   const dispatch = useDispatch()
-  const DashboardState = useSelector(selectDashboard)
 
   function handleClick(e) {
     let rect = e.currentTarget.getBoundingClientRect()
@@ -34,7 +33,6 @@ function Map() {
     return { lat, long }
   }
 
-  // aspect ratio 1.18032786885
   const [pinPosition, changePinPosition] = useState({ long: 0, lat: 0 })
 
   return (
@@ -48,7 +46,11 @@ function Map() {
         onClick={handleClick}
         src={image}
         alt="world map"
-        style={{ objectFit: 'contain', maxHeight: '100%' }}
+        style={{
+          objectFit: 'contain',
+          maxHeight: '100%',
+          filter: 'saturate(83%) brightness(82%) contrast(122%)',
+        }}
       />
       <Pin long={pinPosition.long} lat={pinPosition.lat} />
     </Box>

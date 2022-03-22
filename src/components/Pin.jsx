@@ -1,8 +1,6 @@
 import React from 'react'
-import LocationOnIcon from '@mui/icons-material/LocationOn'
+import LocationOnIcon from '@mui/icons-material/LocationOnTwoTone'
 import { Box } from '@mui/material'
-
-function calculatePosition(lat, long) {}
 
 function Pin(props) {
   return (
@@ -12,7 +10,12 @@ function Pin(props) {
       bottom={props.lat}
       left={props.long}
     >
-      <LocationOnIcon />
+      <LocationOnIcon
+        sx={{
+          color: '#1D2E28',
+          filter: 'drop-shadow(2px 4px 6px #80D6AC)',
+        }}
+      />
     </Box>
   )
 }
