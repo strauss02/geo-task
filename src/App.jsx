@@ -19,14 +19,9 @@ function App() {
     isLoading: getLocationsLoading,
   } = useGetLocationsQuery()
 
-  console.log(probability)
-  console.log(locations)
-
   return (
     <div className="App">
-      <header className="App-header">
-        <p>probability</p>
-      </header>
+      <header className="App-header"></header>
     </div>
   )
 }
