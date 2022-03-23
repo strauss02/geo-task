@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   geographicalInfo: {
-    lat: '55.5469',
-    long: '77.3438',
+    lat: '0',
+    long: '0',
   },
 }
 

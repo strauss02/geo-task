@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useGetProbabilityQuery } from '../redux/features/auroraAPI'
 import { selectDashboard } from '../redux/features/dashboard/dashboardSlice'
@@ -8,8 +8,6 @@ import Typography from '@mui/material/Typography'
 
 function AuroraSection() {
   const DashboardState = useSelector(selectDashboard)
-
-  console.log(DashboardState.geographicalInfo.long)
 
   const {
     data: probability,
@@ -20,8 +18,6 @@ function AuroraSection() {
     long: DashboardState.geographicalInfo.long,
   })
 
-  // console.log(probability.colour)
-
   return (
     <Box
       height={'100%'}
@@ -31,11 +27,12 @@ function AuroraSection() {
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: '1rem',
+        paddingTop: '2rem',
       }}
     >
       <Box>
         <Typography color="textSecondary" variant="subtitle2">
-          Chance of seeing the northern lights is about..
+          Chances of seeing the Northern Lights are about..
         </Typography>
         {!isProbabilityLoading && (
           <Typography color={probability.colour} variant="h1">

@@ -9,18 +9,6 @@ import GeoSection from './layout/GeoSection'
 import AuroraSection from './layout/AuroraSection'
 
 function App() {
-  const {
-    data: probability,
-    error: getProbabilityError,
-    isLoading: getProbabilityLoading,
-  } = useGetProbabilityQuery(80, 80)
-
-  const {
-    data: locations,
-    error: getLocationsError,
-    isLoading: getLocationsLoading,
-  } = useGetLocationsQuery()
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container>

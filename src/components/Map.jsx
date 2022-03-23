@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material'
 import { height } from '@mui/system'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import image from '../assets/map.jpg'
 import Pin from './Pin'
 import {
@@ -8,6 +8,8 @@ import {
   selectDashboard,
 } from '../redux/features/dashboard/dashboardSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { useGetLocationsQuery } from '../redux/features/auroraAPI'
+import PredefinedLocation from './PredefinedLocation'
 
 function Map() {
   const dispatch = useDispatch()
@@ -33,7 +35,22 @@ function Map() {
     return { lat, long }
   }
 
+  const {
+    data: locations,
+    error: getLocationsError,
+    isLoading: isLocationsLoading,
+  } = useGetLocationsQuery()
+
+  console.log(locations)
+
   const [pinPosition, changePinPosition] = useState({ long: 0, lat: 0 })
+
+  useEffect(() => {
+    changePinPosition({ long: 200, lat: 300 })
+  }, [])
+
+  const imgElement = useRef()
+  // const imgRect = imgElement.current.getBoundingClientRect()
 
   return (
     <Box
@@ -51,8 +68,20 @@ function Map() {
           maxHeight: '100%',
           filter: 'saturate(83%) brightness(82%) contrast(122%)',
         }}
+        ref={imgElement}
       />
       <Pin long={pinPosition.long} lat={pinPosition.lat} />
+      {!isLocationsLoading &&
+        Object.values(locations).map((location) => {
+          return (
+            <PredefinedLocation
+              lat={location.lat}
+              long={location.long}
+              el={imgElement}
+              desc={location.description}
+            />
+          )
+        })}
     </Box>
   )
 }
