@@ -1,58 +1,50 @@
 import React from 'react'
 import LandscapeIcon from '@mui/icons-material/Landscape'
 import { Box } from '@mui/material'
+import { changeGeographicalInfo } from '../redux/features/dashboard/dashboardSlice'
+import { useDispatch } from 'react-redux'
 
-function PredefinedLocation(props) {
+function PredefinedLocation({ location, el, changePinPosition }) {
   // Math.cos accepts radians so we need to convert degrees to radians first.
-  function calculateCos(deg) {
-    var rad = (Math.PI / 180) * deg
-
-    return Math.cos(rad)
-  }
 
   function calculatePosition(lat, long, el) {
     let rect = el.current.getBoundingClientRect()
-
-    let deg = lat - 90
-
-    const cosineProduct = calculateCos(deg)
-    let distFromBottom
-    console.log(cosineProduct)
-    // if (cosineProduct < 0) {
-    //   let distFromEquator = cosineProduct * (rect.height / 2)
-    //   distFromBottom = rect.height / 2 - distFromEquator
-    // } else {
-    //   let distFromEquator = cosineProduct * (rect.height / 2)
-    //   distFromBottom = rect.height / 2 + distFromEquator
-    // }
-    let diff = cosineProduct * (rect.height / 2)
-    distFromBottom = diff + rect.height / 2
-
-    let longPercent = long / 360 + 0.5
-
-    let x = rect.width * longPercent // Location position in pixels, from left to right
-    return { lat: distFromBottom, long: x }
-  }
-
-  function calculatePosition2(lat, long, el) {
-    let rect = el.current.getBoundingClientRect()
-
     const PI = Math.PI
     let mapWidth = rect.width
     let mapHeight = rect.height
-
     let mapX = (long + 180) * (mapWidth / 360) + mapWidth / 2
-
     const latRad = (lat * PI) / 180
-
     const mercN = Math.log(Math.tan(PI / 4 + latRad / 2))
     const mapY = mapHeight / 2 - (mapWidth * mercN) / (2 * PI)
-
     return { mapX, mapY }
   }
 
-  const position = calculatePosition2(props.lat, props.long, props.el)
-  console.log(position)
+  const dispatch = useDispatch()
+
+  function calculateCoordinates2(mapX, mapY, mapWidth, mapHeight) {
+    let y = (mapY - mapWidth / 2) / 2000
+
+    let RAD2DEG = 180 / Math.PI
+    let PI_4 = Math.PI / 4
+
+    const lat = (Math.atan(Math.exp(y / RAD2DEG)) / PI_4 - 1) * 90
+
+    //long position within the element.
+    let longPercent = mapX / mapWidth
+    let long = longPercent * 360 - 180
+
+    return { lat, long }
+  }
+
+  function handleClick() {
+    const data = {
+      long: location.long,
+      lat: location.lat,
+    }
+    dispatch(changeGeographicalInfo(data))
+  }
+
+  const position = calculatePosition(location.lat, location.long, el)
 
   return (
     <Box
@@ -62,6 +54,7 @@ function PredefinedLocation(props) {
       left={position.mapX}
     >
       <LandscapeIcon
+        onClick={handleClick}
         sx={{
           color: '#1D2E28',
           filter: 'drop-shadow(2px 4px 6px #80D6AC)',

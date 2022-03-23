@@ -75,10 +75,10 @@ function Map() {
         Object.values(locations).map((location) => {
           return (
             <PredefinedLocation
-              lat={location.lat}
-              long={location.long}
               el={imgElement}
-              desc={location.description}
+              location={location}
+              key={location.id + 'key'}
+              changePinPosition={changePinPosition}
             />
           )
         })}
