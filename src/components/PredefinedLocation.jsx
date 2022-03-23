@@ -40,6 +40,9 @@ function PredefinedLocation({ location, el, changePinPosition }) {
     const data = {
       long: location.long,
       lat: location.lat,
+      name: location.name,
+      description: location.description,
+      country: location.country,
     }
     dispatch(changeGeographicalInfo(data))
   }
