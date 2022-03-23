@@ -1,9 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import {
-  changeGeographicalInfo,
-  selectDashboard,
-} from '../redux/features/dashboard/dashboardSlice'
+import { selectDashboard } from '../redux/features/dashboard/dashboardSlice'
 
 import Typography from '@mui/material/Typography'
 

@@ -1,5 +1,4 @@
 import { Box } from '@mui/material'
-import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useGetProbabilityQuery } from '../redux/features/auroraAPI'
 import { selectDashboard } from '../redux/features/dashboard/dashboardSlice'
@@ -34,9 +33,14 @@ function AuroraSection() {
         <Typography color="textSecondary" variant="subtitle2">
           Chances of seeing the Northern Lights are about..
         </Typography>
+
         {!isProbabilityLoading && (
           <Typography color={probability.colour} variant="h1">
-            {probability.value} %
+            {probabilityError &&
+              'There was a problem while trying to get the requested information'}
+            {isProbabilityLoading && `Loading...`}
+
+            {`${probability.value}%`}
           </Typography>
         )}
       </Box>

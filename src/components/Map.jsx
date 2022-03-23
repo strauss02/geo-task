@@ -1,27 +1,22 @@
-import { Box, Container } from '@mui/material'
-import { height } from '@mui/system'
-import React, { useEffect, useRef, useState } from 'react'
+import { Box } from '@mui/material'
+import { useEffect, useRef, useState } from 'react'
 import image from '../assets/map.jpg'
 import Pin from './Pin'
-import {
-  changeGeographicalInfo,
-  selectDashboard,
-} from '../redux/features/dashboard/dashboardSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { changeGeographicalInfo } from '../redux/features/dashboard/dashboardSlice'
+import { useDispatch } from 'react-redux'
 import { useGetLocationsQuery } from '../redux/features/auroraAPI'
 import PredefinedLocation from './PredefinedLocation'
 
 function Map() {
   const dispatch = useDispatch()
+  const [pinPosition, changePinPosition] = useState({ long: 0, lat: 0 })
 
   function handleClick(e) {
     let rect = e.currentTarget.getBoundingClientRect()
-    let long = e.clientX - rect.left //long position within the element.
+    let long = e.clientX - rect.left // how many pixels deep are we in the image, from left to right
     let latPercent = long / rect.width
-    let lat = rect.bottom - e.clientY //lat position within the element.
+    let lat = rect.bottom - e.clientY //how many pixels deep are we in the image, from the bottom up
     let longPercent = lat / rect.height
-
-    console.log(calculateCoordinates(latPercent, longPercent))
 
     changePinPosition({ long, lat })
 
@@ -35,22 +30,14 @@ function Map() {
     return { lat, long }
   }
 
-  const {
-    data: locations,
-    error: getLocationsError,
-    isLoading: isLocationsLoading,
-  } = useGetLocationsQuery()
-
-  console.log(locations)
-
-  const [pinPosition, changePinPosition] = useState({ long: 0, lat: 0 })
+  const { data: locations, isLoading: isLocationsLoading } =
+    useGetLocationsQuery()
 
   useEffect(() => {
-    changePinPosition({ long: 200, lat: 300 })
+    changePinPosition({ long: 200, lat: 300 }) // Arbitrary initial position
   }, [])
 
   const imgElement = useRef()
-  // const imgRect = imgElement.current.getBoundingClientRect()
 
   return (
     <Box

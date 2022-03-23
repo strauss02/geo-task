@@ -14,28 +14,10 @@ export const dashboardSlice = createSlice({
     changeGeographicalInfo: (state, action) => {
       state.geographicalInfo = action.payload
     },
-    // changeCurrentRoom: (state, action) => {
-    //   state.currentRoom = action.payload;
-    // },
-    // changeCurrentUsername: (state, action) => {
-    //   state.currentUsername = action.payload;
-    // },
-    // addMessageToChatLog: (state, action) => {
-    //   state.chatLogs[action.payload.room].push(action.payload);
-    // },
-    // changeRoomPopulation: (state, action) => {
-    //   state.roomPopulation = action.payload;
-    // },
   },
 })
 
-export const {
-  changeGeographicalInfo,
-  // changeCurrentUsername,
-  // addMessageToChatLog,
-  // changeCurrentRoom,
-  // changeMessageInput,
-} = dashboardSlice.actions
+export const { changeGeographicalInfo } = dashboardSlice.actions
 
 export const selectDashboard = (state) => state.dashboard
 

@@ -1,10 +1,5 @@
-import React from 'react'
-import {
-  useGetLocationsQuery,
-  useGetProbabilityQuery,
-} from './redux/features/auroraAPI'
 import Map from './components/Map.jsx'
-import { Box, Grid, Paper } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import GeoSection from './layout/GeoSection'
 import AuroraSection from './layout/AuroraSection'
 

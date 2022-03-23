@@ -61,6 +61,7 @@ function PredefinedLocation({ location, el, changePinPosition }) {
         sx={{
           color: '#1D2E28',
           filter: 'drop-shadow(2px 4px 6px #80D6AC)',
+          cursor: 'pointer',
         }}
       />
     </Box>
